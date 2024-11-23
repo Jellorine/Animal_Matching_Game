@@ -12,6 +12,12 @@ export default function Animal(props) {
             setResult("LOSE");
         }
     };
+
+    const playAgain = () => {
+        const newIndex = Math.floor(Math.random() * 10) + 1;
+        setName(props.animal[newIndex].name);
+        setResult("");
+    };
   
   return (
     <>
@@ -27,7 +33,9 @@ export default function Animal(props) {
       <div className="right-div">
         <div className="selectAni">
           <h3>Select an Animal</h3>
-          
+          <button className="play-again-btn" onClick={playAgain}>
+            Play Again
+          </button>
         </div>
 
         <div className="animal-grid">
