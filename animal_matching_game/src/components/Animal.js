@@ -2,16 +2,22 @@ import { useState } from "react";
 
 export default function Animal(props) {
     const index = Math.floor(Math.random() * 10) + 1;
-    
+    const [result, setResult] = useState("");
     const [name, setName] = useState(props.animal[index].name);
 
-    
+    const viewResult = (ani) => {
+        if (name === ani.name) {
+            setResult("WIN");
+        } else {
+            setResult("LOSE");
+        }
+    };
   
   return (
     <>
       <div className="left-div">
         <h3>Result</h3>
-        
+        <div className="result">{result}</div>
       </div>
       <div className="middle">
         <h3>Animal Name</h3>
@@ -30,7 +36,9 @@ export default function Animal(props) {
                     className="img"
                     src={require("../assets/fig/" + ani.img)}
                     alt="animal"
-                    
+                    onClick={() => {
+                        viewResult(ani);
+                    }}
                     
                 />
             ))}
