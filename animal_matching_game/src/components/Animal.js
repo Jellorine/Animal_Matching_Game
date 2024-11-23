@@ -17,7 +17,14 @@ export default function Animal(props) {
         </div>
 
         <div className="animal-grid">
-          
+            {props.animal.map((ani) => (
+                <img
+                    className="img"
+                    src={require("../assets/fig/" + ani.img)}
+                    alt="animal"
+                    
+                />
+            ))}
         </div>
       </div>
     </>
